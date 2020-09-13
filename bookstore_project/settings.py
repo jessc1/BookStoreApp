@@ -31,17 +31,23 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    #Local
-    'users.apps.UsersConfig',
-    'pages.apps.PagesConfig',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+        #Local
+    'users.apps.UsersConfig',
+    'pages.apps.PagesConfig',
+        # Third-party
+    'crispy_forms',
     
 ]
+
+#django-crispy-forms
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
     
 
