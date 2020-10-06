@@ -20,10 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'c4j2qovq*e5-jcrms4o*ya+jg1*ouudyrnq_yp^!hmo1t0xv)b'
+#SECRET_KEY = 'c4j2qovq*e5-jcrms4o*ya+jg1*ouudyrnq_yp^!hmo1t0xv)b'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = True
+DEBUG =int(os.environ.get('DEBUG', default=0))
 
 ALLOWED_HOSTS = []
 
@@ -38,16 +40,23 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
         #Local
     'users.apps.UsersConfig',
     'pages.apps.PagesConfig',
+    'books.apps.BooksConfig',
         # Third-party
     'crispy_forms',
+    'allauth',
+    'allauth.account',
+
+  
     
 ]
-
-#django-crispy-forms
+  #django-crispy-forms
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
 
     
 
@@ -148,3 +157,23 @@ AUTH_USER_MODEL = 'users.CustomUser'
 
 LOGIN_REDIRECT_URL = 'home'
 
+# django-allauth config
+SITE_ID = 1
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+#user jabutica
+#superuser caqui
+
+AUTHENTICATION_BACKENDS=(
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
+
+LOGIN_REDIRECT_URL='home'
+LOGOUT_REDIRECT_URL='home'
+
+DEFAULT_FROM_EMAIL = 'admin@djangobookstore.com'
