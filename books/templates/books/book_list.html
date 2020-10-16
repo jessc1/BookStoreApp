@@ -1,6 +1,7 @@
 {% extends '_base.html' %}
 {% block title %}Books{% endblock %}
 {% block content %}
+  <a href="{% url 'orders' %}" class="btn btn-success">Purchase all books</a>
   {% for book in object_list %}
     <div>
       <h2><a href="{{ book.get_absolute_url}}">{{ book.title }}</a></h2>
