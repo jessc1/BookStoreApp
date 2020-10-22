@@ -7,7 +7,7 @@ services:
     environment: 
       - ENVIRONMENT=development
       - SECRET_KEY= 'c4j2qovq*e5-jcrms4o*ya+jg1*ouudyrnq_yp^!hmo1t0xv)b'
-      - DEBUG= 1
+      - DEBUG= 0
       - STRIPE_TEST_PUBLISHABLE_KEY=pk_test_51HcMjjA5yAmOZWQNPQbSur4Ay8cj2SwCjkEaPBIoxfjSFmPRXs8cApv7uwSODMdFas4ou9sHgWKz9zCSf2eBsrxv00LQxSLp1T
       - STRIPE_TEST_SECRET_KEY=sk_test_51HcMjjA5yAmOZWQNRtAdCJRTi6WnKNUYEwnhFEvRYDp2YJpvCtgEiFFYiTtiEW3HYJ20wikUrmItdE3PVmiRceXx00OcrVQO2e
     volumes:
